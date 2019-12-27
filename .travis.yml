@@ -12,6 +12,7 @@ script:
 
 # AWS Config - cannot use t2micro
 deploy:
+    edge: true
     provider: elasticbeanstalk
     access_key_id:
         secure: "$access_key_id"
@@ -21,5 +22,6 @@ deploy:
     app: "docker"
     env: "Docker-env"
     bucket_name: "elasticbeanstalk-us-east-1-835178066609"
+    bucket_path: "docker-react"
     on:
         branch: master
