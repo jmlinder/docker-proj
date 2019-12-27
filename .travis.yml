@@ -10,6 +10,7 @@ before_install:
 script:
     - docker run -e CI=true jmlinder/docker-proj npm run test -- --coverage
 
+# AWS Config - cannot use t2micro
 deploy:
     provider: elasticbeanstalk
     access_key_id:
