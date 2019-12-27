@@ -8,6 +8,4 @@ before_install:
 
 # npm run test does not exit, so need to implement the -- --coverage flag to end the test
 script:
-    - docker run jmlinder/docker-proj npm run test -- --coverage
-# language: generic
-# -e CI=true
+    - docker run -e CI=true jmlinder/docker-proj npm run test -- --coverage
