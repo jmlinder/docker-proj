@@ -3,7 +3,7 @@ WORKDIR '/app'
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD npm run build
+RUN npm run build
 
 # actual production code will be in /app/build
 # FROM statements terminate the previous block.
@@ -11,4 +11,4 @@ CMD npm run build
 FROM nginx
 #EXPOSE is used by AWS / other providers to map certain ports
 EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/build/ /usr/share/nginx/html/
