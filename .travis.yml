@@ -1,0 +1,13 @@
+# sudo always required with Docker
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t jmlinder/docker-proj -f Dockerfile.dev .
+
+# npm run test does not exit, so need to implement the -- --coverage flag to end the test
+script:
+    - docker run jmlinder/docker-proj npm run test -- --coverage
+# language: generic
+# -e CI=true
